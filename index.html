@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamscrap Technologies Pvt. Ltd. | Sustainable Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* .leaf-pattern {
+            background-image: radial-gradient(circle, rgba(74, 163, 106, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        } */
+
+        body {
+            opacity: 0;
+            /* transform: translateY(20px); */
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(21, 101, 60, 0.9) 0%, rgba(34, 139, 34, 0.8) 100%);
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* General anchor tag hover */
+        a:hover {
+            transition: all 0.3s ease;
+            color: #ffffff;
+            /* Tailwind's green-800 */
+            text-decoration: underline;
+        }
+
+        .developer:hover {
+            color: #10b981;
+            /* Tailwind's green-500 */
+            text-decoration: underline;
+        }
+
+        /* Navbar links */
+        .nav-link:hover,
+        .mobile-nav-link:hover {
+            background-color: #065f46;
+            /* Tailwind's green-800 */
+            color: #ffffff;
+        }
+
+        /* Social icons hover effect */
+        .social-icon:hover,
+        .footer-social-icon:hover,
+        .social-icon-lg:hover {
+            color: #10b981;
+            /* Tailwind's green-500 */
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+        }
+
+        /* Primary button */
+        .primary-btn {
+            background-color: #047857;
+            /* Tailwind's green-700 */
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .primary-btn:hover {
+            background-color: #065f46;
+            color: #ffffff
+                /* green-800 */
+        }
+
+        /* Secondary button */
+        .secondary-btn {
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-btn:hover {
+            background-color: #ffffff;
+            color: #065f46;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            background-color: #10b981;
+            /* green-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #059669;
+            /* green-600 */
+            transform: scale(1.05);
+            color: #ffffff;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #047857;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #065f46;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center space-x-3">
+                        <i class="fas fa-recycle text-3xl text-green-300"></i>
+                        <div>
+                            <span class="text-lg font-bold block">Glamscrap Technologies</span>
+                            <span class="text-xs block">Private Limited</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-6">
+                    <a href="#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="#services" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                    <a href="#products" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                    <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    <div class="flex space-x-4 ml-4">
+                        <a href="https://facebook.com" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="menu-btn" class="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-700 pb-3">
+            <div class="px-2 pt-2 space-y-1 sm:px-3">
+                <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#services"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="#products"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Products</a>
+                <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                <div class="flex justify-center space-x-5 pt-3">
+                    <a href="https://facebook.com" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden hero-gradient">
+        <div class="absolute inset-0 opacity-30">
+            <img class="w-full h-full object-cover"
+                src="https://community.nasscom.in/sites/default/files/styles/960_x_600/public/media/images/sus.jpg?itok=YYfbG7xp"
+                alt="Sustainable technology">
+        </div>
+        <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
+                <span class="block">Innovative</span>
+                <span class="block text-green-200">Sustainable Solutions</span>
+            </h1>
+            <p class="mt-6 max-w-lg mx-auto text-xl text-green-100 sm:max-w-3xl">
+                We transform waste into valuable resources through cutting-edge technology and sustainable practices for
+                a cleaner, greener planet.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#products" class="primary-btn text-white opacity-100">
+                    Our Products <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#contact" class="secondary-btn text-white">
+                    Contact Us <i class="fas fa-envelope ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="leaf-pattern py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">About Us</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Pioneering Sustainable Technology
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    Glamscrap Technologies Pvt. Ltd. is a leader in innovative waste management and recycling solutions.
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="flex flex-col lg:flex-row items-center gap-10">
+                    <div class="lg:w-1/2">
+                        <img class="rounded-lg shadow-xl w-full"
+                            src="https://www.bisinfotech.com/wp-content/uploads/2024/07/Sustainable-Future.jpg"
+                            alt="Glamscrap facility">
+                    </div>
+                    <div class="lg:w-1/2">
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl">
+                                <h3 class="text-2xl font-bold text-green-700 mb-4">Our Vision</h3>
+                                <p class="text-gray-700">
+                                    To revolutionize the waste management industry by developing technologies that
+                                    transform waste into valuable resources, creating a circular economy.
+                                </p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl">
+                                <h3 class="text-2xl font-bold text-green-700 mb-4">Our Mission</h3>
+                                <p class="text-gray-700">
+                                    To revolutionize the waste management industry by developing technologies that
+                                    transform waste into valuable resources, creating a circular economy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Our Services</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Comprehensive Waste Solutions
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    We offer end-to-end sustainable solutions for waste management across various industries.
+                </p>
+            </div>
+
+            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover"
+                            src="https://3rrecycler.com/wp-content/uploads/2023/06/ey-waste-bin-full-of-e-waste.jpg.rendition.1800.1200.jpg"
+                            alt="Electronic waste recycling">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-laptop text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">E-Waste Recycling</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Responsible recycling of electronic waste with secure data destruction and material
+                            recovery.
+                        </p>
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Secure data wiping and destruction</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>99.8% material recovery rate</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Certified disposal processes</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover"
+                            src="https://img.etimg.com/thumb/width-1200,height-1200,imgsize-58238,resizemode-75,msid-120585501/industry/indl-goods/svs/paper-/-wood-/-glass/-plastic/-marbles/bengaluru-firm-unveils-tech-to-recycle-plastic-that-cant-be-melted.jpg"
+                            alt="Plastic recycling">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-recycle text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Plastic Upcycling</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Transforming plastic waste into high-quality raw materials for manufacturing.
+                        </p>
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Advanced sorting technology</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Food-grade material production</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Custom polymer blends</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover"
+                            src="https://www.ecoenclose.com/product_images/uploaded_images/rubbish-removal.jpg"
+                            alt="Industrial waste management">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-industry text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Industrial Waste Solutions</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Customized waste management solutions for manufacturing and industrial sectors.
+                        </p>
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Closed-loop waste systems</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Hazardous waste management</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Waste-to-energy solutions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Our Products</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Sustainable By-products
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    High-quality materials created through our advanced recycling processes.
+                </p>
+            </div>
+
+            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <!-- Product 1 -->
+                <div class="product-container relative">
+                    <div
+                        class="bg-white rounded-lg overflow-hidden shadow-md h-full flex flex-col transition-all duration-300 hover:shadow-xl">
+                        <div class="relative">
+                            <img class="w-full h-48 object-cover"
+                                src="https://suspire.in/cdn/shop/files/3_ed4ce51b-c551-46c9-84c3-18606f798dfd_1400x.jpg?v=1736488948"
+                                alt="Recycled Pens with Seed">
+                            <div
+                                class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-all duration-300 shadow-md hover:shadow-xl">
+                                <button
+                                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-green-700 mb-2">Recycled Pens with Seed</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                This is made from recycled plastic, papers and comes with a seed capsule
+                            </p>
+                            <!-- <div class="flex justify-between items-center">
+                                <span class="font-bold text-green-700">$12.50/sheet</span>
+                                <button class="text-green-600 hover:text-green-800">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-container relative">
+                    <div
+                        class="bg-white rounded-lg overflow-hidden shadow-md h-full flex flex-col transition-all duration-300 hover:shadow-xl">
+                        <div class="relative">
+                            <img class="w-full h-48 object-cover"
+                                src="https://static.wixstatic.com/media/673d93_36e74e32bbd94cf08307a9a74b39e76a~mv2.jpg/v1/fill/w_980,h_1234,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/673d93_36e74e32bbd94cf08307a9a74b39e76a~mv2.jpg"
+                                alt="Recycled Pencils with Seed">
+                            <div
+                                class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-all duration-300">
+                                <button
+                                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-green-700 mb-2">Recycled Pencils with Seed</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                Eco-friendly pencils made from recycled materials, each with a seed capsule to plant
+                                after use.
+                            </p>
+                            <!-- <div class="flex justify-between items-center">
+                                <span class="font-bold text-green-700">$2.75/kg</span>
+                                <button class="text-green-600 hover:text-green-800">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-container relative">
+                    <div
+                        class="bg-white rounded-lg overflow-hidden shadow-md h-full flex flex-col transition-all duration-300 hover:shadow-xl">
+                        <div class="relative">
+                            <img class="w-full h-48 object-cover"
+                                src="https://greenfeels.in/cdn/shop/files/IMG-20220908-WA0026.jpg?v=1686137970"
+                                alt="Recycled Notepads">
+                            <div
+                                class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-all duration-300">
+                                <button
+                                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-green-700 mb-2">Recycled Notepads</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                Notepads made from recycled paper, perfect for eco-conscious note-taking and sketching.
+                            </p>
+                            <!-- <div class="flex justify-between items-center">
+                                <span class="font-bold text-green-700">$3.20/roll</span>
+                                <button class="text-green-600 hover:text-green-800">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-container relative">
+                    <div
+                        class="bg-white rounded-lg overflow-hidden shadow-md h-full flex flex-col transition-all duration-300 hover:shadow-xl">
+                        <div class="relative">
+                            <img class="w-full h-48 object-cover"
+                                src="https://media.licdn.com/dms/image/v2/D5622AQH5JDQzPd5Ymg/feedshare-shrink_800/B56ZbDMnLsHgAs-/0/1747031591722?e=1752710400&v=beta&t=fPVaFbdbXk64USlVJVielmloVA08vSu3KOKXKCYdjxA"
+                                alt="Momentos Made from Recycled Materials">
+                            <div
+                                class="product-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-all duration-300">
+                                <button
+                                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-green-700 mb-2">Momentos made from Recycled Materials</h3>
+                            <p class="text-gray-600 mb-4 flex-grow">
+                                Unique momentos crafted from recycled materials, perfect for gifts or personal
+                                keepsakes.
+                            </p>
+                            <!-- <div class="flex justify-between items-center">
+                                <span class="font-bold text-green-700">$18.90/panel</span>
+                                <button class="text-green-600 hover:text-green-800">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="mt-12 text-center">
+                <a href="#"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 transition duration-300">
+                    View All Products <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-green-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="px-4 py-8">
+                    <div class="text-4xl font-bold mb-2">10+</div>
+                    <div class="text-green-200">Tons Recycled</div>
+                </div>
+                <div class="px-4 py-8">
+                    <div class="text-4xl font-bold mb-2">50+</div>
+                    <div class="text-green-200">Corporate Clients</div>
+                </div>
+                <div class="px-4 py-8">
+                    <div class="text-4xl font-bold mb-2">3+</div>
+                    <div class="text-green-200">Facilities</div>
+                </div>
+                <div class="px-4 py-8">
+                    <div class="text-4xl font-bold mb-2">95%</div>
+                    <div class="text-green-200">Recovery Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Testimonials</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    What Our Clients Say
+                </p>
+            </div>
+
+            <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full object-cover mr-4"
+                            src="https://randomuser.me/api/portraits/women/33.jpg" alt="Client testimonial">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                            <p class="text-green-600">EcoTech Solutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Glamscrap's e-waste recycling service has transformed our sustainability program. Their
+                        attention to data security and reporting gives us complete peace of mind."
+                    </p>
+                    <div class="mt-4 text-green-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full object-cover mr-4"
+                            src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client testimonial">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Michael Chen</h4>
+                            <p class="text-green-600">Green Manufacturing Co.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "The recycled plastic sheets we purchase from Glamscrap are consistently high quality and help
+                        us meet our sustainability targets without compromising on performance."
+                    </p>
+                    <div class="mt-4 text-green-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full object-cover mr-4"
+                            src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client testimonial">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Priya Patel</h4>
+                            <p class="text-green-600">Urban Recycling Initiative</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Working with Glamscrap has allowed us to divert thousands of tons of waste from landfills.
+                        Their innovative approach and reliable service are unmatched in the industry."
+                    </p>
+                    <div class="mt-4 text-green-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+                Ready to Transform Your Waste?
+            </h2>
+            <p class="mt-4 max-w-3xl mx-auto text-xl text-green-100">
+                Partner with Glamscrap Technologies for sustainable waste solutions that benefit both your business and
+                the planet.
+            </p>
+            <div class="mt-8 flex justify-center">
+                <a href="#contact" class="cta-btn">
+                    Get Started Today <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Contact Us</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Get In Touch
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    Have questions about our services or products? We'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="mt-10 flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold text-green-700 mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-green-100 rounded-md p-3">
+                                        <i class="fas fa-map-marker-alt text-green-600"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-900">Corporate Headquarters</h4>
+                                    <p class="mt-1 text-gray-600">SREC SPARK Incubation Center,<br>Sri Ramakrishna
+                                        Engineering College,<br>Vattamalaipalayam,<br>Coimbatore - 641022</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-green-100 rounded-md p-3">
+                                        <i class="fas fa-phone-alt text-green-600"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-900">Phone</h4>
+                                    <p class="mt-1 text-gray-600">+91 12345 67890</p>
+                                    <p class="text-sm text-gray-500 mt-1">Mon-Sat, 10am-5pm IST</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-green-100 rounded-md p-3">
+                                        <i class="fas fa-envelope text-green-600"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-900">Email</h4>
+                                    <p class="mt-1 text-gray-600">glamscraptechnologies@gmail.com</p>
+                                    <p class="text-sm text-gray-500 mt-1">Typically responds within 24 hours</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="social-icon-lg"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon-lg"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon-lg"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-icon-lg"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-green-700 mb-6">Send Us a Message</h3>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="first-name" class="block text-sm font-medium text-gray-700">First
+                                        Name*</label>
+                                    <input type="text" id="first-name"
+                                        class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                                </div>
+                                <div>
+                                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last
+                                        Name*</label>
+                                    <input type="text" id="last-name"
+                                        class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email*</label>
+                                <input type="email" id="email"
+                                    class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                                <input type="tel" id="phone"
+                                    class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700">Subject*</label>
+                                <select id="subject"
+                                    class="form-select mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500">
+                                    <option>General Inquiry</option>
+                                    <option>Sales Questions</option>
+                                    <option>Service Request</option>
+                                    <option>Partnership Opportunities</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Message*</label>
+                                <textarea id="message" rows="4"
+                                    class="form-textarea mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"></textarea>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="agree-terms" type="checkbox"
+                                    class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                <label for="agree-terms" class="ml-2 block text-sm text-gray-700">
+                                    I agree to the <a href="#" class="text-green-600 hover:text-green-800">privacy
+                                        policy</a> and <a href="#" class="text-green-600 hover:text-green-800">terms of
+                                        service</a>.
+                                </label>
+                            </div>
+                            <div>
+                                <button type="submit" class="submit-btn">
+                                    Send Message <i class="fas fa-paper-plane ml-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.4381996383654!2d76.96165687772508!3d11.101681760878934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8f7007a69ace3%3A0x1e7e96b075da61cf!2sGlamscrap%20Technologies%20Pvt.%20Ltd.!5e1!3m2!1sen!2sin!4v1749616777061!5m2!1sen!2sin"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-md"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-recycle text-3xl text-green-300 mr-3"></i>
+                        <span class="text-xl font-bold">Glamscrap<br>Technologies</span>
+                    </div>
+                    <p class="text-green-200 text-sm">
+                        Transforming waste into wealth through innovative recycling technologies and sustainable
+                        solutions for a greener future.
+                    </p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link">E-Waste Recycling</a></li>
+                        <li><a href="#" class="footer-link">Plastic Upcycling</a></li>
+                        <li><a href="#" class="footer-link">Industrial Waste Mgmt</a></li>
+                        <li><a href="#" class="footer-link">Compost Solutions</a></li>
+                        <li><a href="#" class="footer-link">Hazardous Waste</a></li>
+                    </ul>
+                </div> -->
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link">Recycled Seed Pens</a></li>
+                        <li><a href="#" class="footer-link">Recycled Seed Pencils</a></li>
+                        <li><a href="#" class="footer-link">Recycled Notepads</a></li>
+                        <li><a href="#" class="footer-link">Momentos made of Recycled Plastics</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Services we offer</a></li>
+                        <li><a href="#" class="footer-link">Sustainability Goals</a></li>
+                        <li><a href="#" class="footer-link">News & Media</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal Notices</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Environmental Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-green-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-green-300 text-sm mb-4 md:mb-0">
+                    © 2025 Glamscrap Technologies Pvt. Ltd. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <!-- <img src="https://via.placeholder.com/40x25?text=ISO" alt="ISO Certified" class="h-6">
+                    <img src="https://via.placeholder.com/40x25?text=EPR" alt="EPR Compliance" class="h-6">
+                    <img src="https://via.placeholder.com/40x25?text=R2" alt="R2 Certified" class="h-6"> -->
+                    <p>Developed by <a href="#" class="developer">Alan S.</a> and <a href="#"
+                            class="developer">Madhujith B.</a> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('hidden') ?
+                '<i class="fas fa-bars text-xl"></i>' :
+                '<i class="fas fa-times text-xl"></i>';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                    }
+                }
+            });
+        });
+
+        // Add animation to stats when scrolled into view
+        const statsSection = document.querySelector('.bg-green-700');
+        const statsElements = document.querySelectorAll('.bg-green-700 .text-4xl');
+
+        const animateStats = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    statsElements.forEach((element, index) => {
+                        setTimeout(() => {
+                            element.classList.add('animate-bounce');
+                        }, index * 150);
+                    });
+                }
+            });
+        };
+
+        const statsObserver = new IntersectionObserver(animateStats, { threshold: 0.5 });
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+
+</html>
