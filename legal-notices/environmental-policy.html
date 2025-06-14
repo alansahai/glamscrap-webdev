@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Environmental Policy | Glamscrap Technologies Pvt. Ltd.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(21, 101, 60, 0.9) 0%, rgba(34, 139, 34, 0.8) 100%);
+        }
+
+        a:hover {
+            transition: all 0.3s ease;
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .developer:hover {
+            color: #10b981;
+            text-decoration: underline;
+        }
+
+        .nav-link:hover,
+        .mobile-nav-link:hover {
+            background-color: #065f46;
+            color: #ffffff;
+        }
+
+        .social-icon:hover,
+        .footer-social-icon:hover,
+        .social-icon-lg:hover {
+            color: #10b981;
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn {
+            background-color: #047857;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .primary-btn:hover {
+            background-color: #065f46;
+            color: #ffffff
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-btn:hover {
+            background-color: #ffffff;
+            color: #065f46;
+        }
+
+        .policy-section {
+            background-color: #f8f9fa;
+            border-left: 4px solid #047857;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+        .policy-title {
+            color: #047857;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center space-x-3">
+                        <img src="/Assets/Glamscrap logo.png" alt="Glamscrap Logo" class="h-11 w-11 rounded-full">
+                        <div>
+                            <span class="text-lg font-bold block">Glamscrap Technologies</span>
+                            <span class="text-xs block">Private Limited</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-6">
+                    <a href="/index.html#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="/index.html#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="/index.html#services"
+                        class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                    <a href="/index.html#products"
+                        class="nav-link px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                    <a href="/index.html#achievements"
+                        class="nav-link px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
+                    <a href="/index.html#team" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Our Team</a>
+                    <a href="/index.html#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    <div class="flex space-x-4 ml-4">
+                        <a href="mailto:glamscraptechnologies@gmail.com" class="social-icon"><i
+                                class="fa-solid fa-envelope"></i></a>
+                        <a href="https://instagram.com/recyclegifts" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited"
+                            class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="menu-btn" class="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-700 pb-3">
+            <div class="px-2 pt-2 space-y-1 sm:px-3">
+                <a href="/index.html#home"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="/index.html#about"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="/index.html#services"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="/index.html#products"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Products</a>
+                <a href="/index.html#achievements"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Achievements</a>
+                <a href="/index.html#team" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Our
+                    Team</a>
+                <a href="/index.html#contact"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                <div class="flex justify-center space-x-5 pt-3">
+                    <a href="mailto:glamscraptechnologies@gmail.com" class="social-icon"><i
+                            class="fa-solid fa-envelope"></i></a>
+                    <a href="https://instagram.com/recyclegifts" class="social-icon"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited"
+                        class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Environmental Policy Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Policy</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Environmental Policy
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    Effective Date: June 2025<br>
+                    Last Updated: June 2025
+                </p>
+            </div>
+
+            <div class="prose max-w-4xl mx-auto">
+
+                <div class="policy-section">
+                    <h3 class="policy-title">1. Policy Statement</h3>
+                    <p>We are committed to environmental stewardship and sustainable development through innovative
+                        waste management and recycling. Our efforts exceed compliance and focus on proactive
+                        protection
+                        and improvement.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">2. Our Environmental Vision and Mission</h3>
+                    <h4 class="text-l font-semibold text-gray-800 mb-3">2.1 Environmental Vision</h4>
+                    <p>To be a catalyst for environmental transformation by achieving zero waste to landfill and
+                        maximizing resource recovery.</p>
+
+                    <h4 class="text-l font-semibold text-gray-800 mb-3">2.2 Environmental Mission</h4>
+                    <p>To implement innovative recycling technologies that reduce environmental impact and support a
+                        sustainable future.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">3. Environmental Objectives and Commitments</h3>
+                    <h4 class="text-l font-semibold text-gray-800 mb-3">3.1 Core Commitments</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Zero Waste to Landfill</li>
+                        <li>Carbon Footprint Reduction</li>
+                        <li>Resource Conservation</li>
+                        <li>Pollution Prevention</li>
+                        <li>Circular Economy</li>
+                        <li>Biodiversity Protection</li>
+                    </ul>
+
+                    <h4 class="text-l font-semibold text-gray-800 mb-3 mt-4">3.2 Quantitative Targets</h4>
+                    <ul class="list-disc pl-5">
+                        <li>99.8% e-waste material recovery</li>
+                        <li>95% waste diversion from landfills</li>
+                        <li>10% annual reduction in energy per ton</li>
+                        <li>Carbon neutrality by 2030</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">4. Environmental Management Framework</h3>
+                    <h4 class="text-l font-semibold text-gray-800 mb-3">4.1 Management System</h4>
+                    <ul class="list-disc pl-5">
+                        <li>ISO 14001:2015 based EMS</li>
+                        <li>Continuous monitoring</li>
+                        <li>Internal and external audits</li>
+                    </ul>
+
+                    <h4 class="text-l font-semibold text-gray-800 mb-3">4.2 Risk Assessment</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Air, water, soil risk management</li>
+                        <li>Emergency and spill control</li>
+                        <li>Hazardous material handling</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">5. Operational Environmental Standards</h3>
+                    <h4 class="text-l font-semibold text-gray-800 mb-3">5.1 Waste Processing</h4>
+                    <ul class="list-disc pl-5">
+                        <li>E-Waste: Secure data destruction, safe battery handling</li>
+                        <li>Plastics: Advanced sorting, food-grade output</li>
+                        <li>Industrial: Waste-to-energy, hazardous compliance</li>
+                    </ul>
+
+                    <h4 class="text-l font-semibold text-gray-800 mb-3">5.2 Facility Operations</h4>
+                    <ul class="list-disc pl-5">
+                        <li>Energy: LED, renewable integration</li>
+                        <li>Water: Rainwater harvesting, recycling</li>
+                        <li>Green Building: Sustainable design and materials</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">6. Compliance and Certifications</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Adheres to CPCB, TNPCB, and all Indian environmental laws</li>
+                        <li>Maintains ISO 14001 and BIS certifications</li>
+                        <li>Holds Pollution Control Board and EPR authorizations</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">7. Stakeholder Engagement</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Client Education and Sustainability Reporting</li>
+                        <li>Community Involvement Programs</li>
+                        <li>Industry, Government, and Academic Collaboration</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">8. Performance Monitoring</h3>
+                    <ul class="list-disc pl-5">
+                        <li>KPIs: Recovery rates, energy/water use, emissions</li>
+                        <li>Real-time air/water monitoring, monthly reviews</li>
+                        <li>Annual third-party audits</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">9. Training and Awareness</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Staff training on safety and environmental impact</li>
+                        <li>Supplier compliance and reporting requirements</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">10. Innovation and R&D</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Investment in recycling tech and digital waste tracking</li>
+                        <li>Partnerships with universities and startups</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">11. Emergency Preparedness</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Plans for chemical spills, natural disasters</li>
+                        <li>Business continuity and recovery protocols</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">12. Transparency and Reporting</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Annual reports and performance metrics</li>
+                        <li>Open stakeholder consultations and data access</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">13. Continuous Improvement</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Regular reviews, audits, feedback integration</li>
+                        <li>Employee and customer suggestions encouraged</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">14. Supplier & Partner Standards</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Environmental compliance and transparency</li>
+                        <li>Shared improvement goals</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">15. Implementation & Governance</h3>
+                    <ul class="list-disc pl-5">
+                        <li>Environmental Committee and Officers oversee execution</li>
+                        <li>Monthly reviews and resource allocation ensured</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">16. Communication</h3>
+                    <p>This policy is communicated to all employees and made available publicly through our website.
+                        It
+                        is reviewed annually.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">17. Management Commitment</h3>
+                    <p>Our leadership pledges full support for environmental protection, resource allocation, and
+                        continuous improvement.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h3 class="policy-title">18. Contact Information</h3>
+                    <p><strong>Environmental Officer</strong><br>
+                        Glamscrap Technologies Pvt. Ltd.<br>
+                        Email: <a href="mailto:glamscraptechnologies@gmail.com"
+                            class="text-green-600">glamscraptechnologies@gmail.com</a><br>
+                        Phone: +91 12345 67890<br>
+                        Address: SREC SPARK Incubation Center, Sri Ramakrishna Engineering College,<br>
+                        Vattamalaipalayam, Coimbatore - 641022, Tamil Nadu, India</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="/Assets/Glamscrap logo.png" alt="Glamscrap Logo" class="h-11 w-11 rounded-full"> <span
+                            class="text-xl font-bold"> Glamscrap<br>Technologies</span>
+                    </div>
+                    <p class="text-green-200 text-sm">
+                        Glamscrap Technologies Pvt Ltd is a sustainability-driven brand turning waste into eco-friendly
+                        alternatives, promoting circular economy and inspiring greener choices for a better tomorrow.
+                    </p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="mailto:glamscraptechnologies@gmail.com" class="social-icon"><i
+                                class="fa-solid fa-envelope"></i></a>
+                        <a href="https://instagram.com/recyclegifts" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited"
+                            class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="footer-link">E-Waste Recycling</a></li>
+                        <li><a href="#" class="footer-link">Plastic Upcycling</a></li>
+                        <li><a href="#" class="footer-link">Industrial Waste Mgmt</a></li>
+                        <li><a href="#" class="footer-link">Compost Solutions</a></li>
+                        <li><a href="#" class="footer-link">Hazardous Waste</a></li>
+                    </ul>
+                </div> -->
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/products/seed-pen.html" class="footer-link">Recycled Seed Pens</a></li>
+                        <li><a href="/products/seed-pencil.html" class="footer-link">Recycled Seed Pencils</a></li>
+                        <li><a href="/products/notepad.html" class="footer-link">Recycled Notepads</a></li>
+                        <li><a href="/products/momento.html" class="footer-link">Momentos made of Recycled Plastics</a>
+                        </li>
+                        <li><a href="/products/bag.html" class="footer-link">Recycled Bags</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html#about" class="footer-link">About Us</a></li>
+                        <li><a href="/index.html#achievements" class="footer-link">Achievements</a></li>
+                        <li><a href="/index.html#services" class="footer-link">Our Services</a></li>
+                        <li><a href="/index.html#team" class="footer-link">Our Team</a></li>
+                        <!-- <li><a href="#" class="footer-link">Sustainability Goals</a></li> -->
+                        <li><a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited"
+                                class="footer-link">News & Media</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal Notices</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/legal-notices/privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="/legal-notices/terms-of-service.html" class="footer-link">Terms of Service</a></li>
+                        <li><a href="/legal-notices/environmental-policy.html" class="footer-link">Environmental
+                                Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-green-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-green-300 text-sm mb-4 md:mb-0">
+                    © 2025 Glamscrap Technologies Pvt. Ltd. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <!-- <img src="https://via.placeholder.com/40x25?text=ISO" alt="ISO Certified" class="h-6">
+                    <img src="https://via.placeholder.com/40x25?text=EPR" alt="EPR Compliance" class="h-6">
+                    <img src="https://via.placeholder.com/40x25?text=R2" alt="R2 Certified" class="h-6"> -->
+                    <p style="font-size: 16px;">Developed by <a href="https://www.linkedin.com/in/alan-s-9385a328a/"
+                            class="developer">Alan
+                            S.</a> and <a href="https://www.linkedin.com/in/madhujith-b-a5a67528b"
+                            class="developer">Madhujith B.</a> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('hidden') ?
+                '<i class="fas fa-bars text-xl"></i>' :
+                '<i class="fas fa-times text-xl"></i>';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
