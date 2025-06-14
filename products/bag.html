@@ -7,33 +7,243 @@
     <title>Product Details | GreenCycle</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
+        /* Enhanced slideshow styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .slide-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .product-gallery {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            overflow-x: auto;
+            padding: 8px 0;
+        }
+
+        .product-gallery img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .product-gallery img:hover,
+        .product-gallery img.active {
+            border-color: #16a34a;
+            transform: scale(1.05);
+        }
+
+        /* Existing styles from original */
+        .leaf-pattern {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 20c0-10 10-20 20-10s10 20 0 30-20 0-20-20z" fill="%23f0fdf4" opacity="0.1"/></svg>');
+        }
+
         .specs-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 1rem;
-            margin-top: 1rem;
-        }
-
-        .specs-table tr {
-            border-top: 1px solid #e5e7eb;
-            /* Tailwind gray-200 */
-            border-bottom: 1px solid #e5e7eb;
         }
 
         .specs-table td {
-            padding: 0.75rem 1rem;
-            color: #374151;
-            /* Tailwind gray-700 */
-            vertical-align: top;
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .specs-table td:first-child {
             font-weight: 600;
+            color: #374151;
             width: 30%;
-            color: #065f46;
-            /* Tailwind green-800 */
+        }
+
+        .eco-benefit {
+            transition: transform 0.3s ease;
+        }
+
+        .eco-benefit:hover {
+            transform: translateY(-2px);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-button.active {
+            border-color: #16a34a !important;
+            color: #16a34a !important;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Ensure full height usage */
+        body {
+            min-height: 100vh;
+        }
+
+        /* Logo styling */
+        .logo-container img {
+            height: 40px;
+            width: auto;
+            margin-right: 8px;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #a7f3d0;
+        }
+
+        .mobile-nav-link {
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-link:hover {
+            background-color: #065f46;
+            color: white;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #a7f3d0;
+            transform: scale(1.1);
+        }
+
+        .footer-link {
+            color: #a7f3d0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .developer {
+            color: #a7f3d0;
+            transition: all 0.3s ease;
+        }
+
+        .developer:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        body {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -45,7 +255,7 @@
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center space-x-3">
-                        <i class="fas fa-recycle text-3xl text-green-300"></i>
+                        <img src="/Assets/Glamscrap logo.png" alt="Glamscrap Logo" class="h-11 w-11 rounded-full">
                         <div>
                             <span class="text-lg font-bold block">Glamscrap Technologies</span>
                             <span class="text-xs block">Private Limited</span>
@@ -54,10 +264,15 @@
                 </div>
                 <div class="hidden md:ml-6 md:flex md:items-center md:space-x-6">
                     <a href="/index.html#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                    <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium">About</a>
-                    <a href="#services" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                    <a href="#products" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Products</a>
-                    <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    <a href="/index.html#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="/index.html#services"
+                        class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                    <a href="/index.html#products"
+                        class="nav-link px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                    <a href="/index.html#achievements"
+                        class="nav-link px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
+                    <a href="/index.html#team" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Our Team</a>
+                    <a href="/index.html#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contact</a>
                     <div class="flex space-x-4 ml-4">
                         <a href="mailto:glamscraptechnologies@gmail.com" class="social-icon"><i
                                 class="fa-solid fa-envelope"></i></a>
@@ -77,13 +292,20 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-green-700 pb-3">
             <div class="px-2 pt-2 space-y-1 sm:px-3">
-                <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="#services"
+                <a href="/index.html#home"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="/index.html#about"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="/index.html#services"
                     class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Services</a>
-                <a href="#products"
+                <a href="/index.html#products"
                     class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Products</a>
-                <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                <a href="/index.html#achievements"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Achievements</a>
+                <a href="/index.html#team" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Our
+                    Team</a>
+                <a href="/index.html#contact"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Contact</a>
                 <div class="flex justify-center space-x-5 pt-3">
                     <a href="mailto:glamscraptechnologies@gmail.com" class="social-icon"><i
                             class="fa-solid fa-envelope"></i></a>
@@ -96,118 +318,146 @@
         </div>
     </nav>
 
-
-    <!-- Product Detail Section -->
     <!-- Product Detail Section -->
     <section class="py-12 leaf-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Breadcrumb -->
             <div class="flex items-center text-sm text-green-600 mb-6">
-                <a href="index.html" class="hover:underline">Home</a>
+                <a href="/index.html" class="hover:underline">Home</a>
                 <span class="mx-2">/</span>
-                <a href="index.html#products" class="hover:underline">Products</a>
+                <a href="/index.html#products" class="hover:underline">Products</a>
                 <span class="mx-2">/</span>
                 <span class="text-green-800">Recycled Bags</span>
             </div>
 
             <div class="flex flex-col lg:flex-row gap-8">
-                <!-- Product Images -->
+                <!-- Enhanced Product Images with Slideshow -->
                 <div class="lg:w-1/2">
-                    <img id="mainImage"
-                        src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                        alt="Recycled Paper Notebook" class="w-full object-cover rounded-lg shadow-lg max-h-[500px]" />
+                    <div class="slideshow-container">
+                        <!-- Slides -->
+                        <div class="slide active">
+                            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                                alt="Recycled Bags - Main View" class="main-image shadow-lg">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                                alt="Recycled Bags - Close-up" class="main-image shadow-lg">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                                alt="Recycled Bags - In Use" class="main-image shadow-lg">
+                        </div>
+                        <div class="slide">
+                            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+                                alt="Recycled Bags - Variety" class="main-image shadow-lg">
+                        </div>
 
-                    <div class="flex gap-4 mt-4 overflow-x-auto">
-                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                            alt="Notebook close-up"
-                            class="w-24 h-24 object-cover rounded cursor-pointer hover:opacity-80 transition"
-                            onclick="changeImage(this)">
-                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                            alt="Notebook in use"
-                            class="w-24 h-24 object-cover rounded cursor-pointer hover:opacity-80 transition"
-                            onclick="changeImage(this)">
-                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                            alt="Notebook packaging"
-                            class="w-24 h-24 object-cover rounded cursor-pointer hover:opacity-80 transition"
-                            onclick="changeImage(this)">
+                        <!-- Navigation arrows -->
+                        <button class="slide-nav prev" onclick="changeSlide(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slide-nav next" onclick="changeSlide(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Slide indicators -->
+                        <div class="slide-indicators">
+                            <span class="indicator active" onclick="currentSlide(1)"></span>
+                            <span class="indicator" onclick="currentSlide(2)"></span>
+                            <span class="indicator" onclick="currentSlide(3)"></span>
+                            <span class="indicator" onclick="currentSlide(4)"></span>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnail gallery -->
+                    <div class="product-gallery">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Recycled Bags - Main View" class="active" onclick="currentSlide(1)">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Recycled Bags - Close-up" onclick="currentSlide(2)">
+                        <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Recycled Bags - In Use" onclick="currentSlide(3)">
+                        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Recycled Bags - Variety" onclick="currentSlide(4)">
                     </div>
                 </div>
 
                 <!-- Product Info -->
                 <div class="lg:w-1/2">
                     <h1 class="text-3xl md:text-4xl font-bold text-green-800 mb-2">Recycled Bags</h1><br>
-
                     <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                         <h2 class="text-xl font-bold text-green-700 mb-4">Product Description</h2>
                         <p class="text-gray-700 mb-4">
                             <b>Manufacturing & Materials:</b>
-                            Our premium recycled bags are crafted from 100% post-consumer waste plastic bags that have
-                            been collected, cleaned, and transformed through an innovative upcycling process.
-                            These durable, multipurpose bags give new life to discarded plastic shopping bags, grocery
-                            bags, and packaging materials that would otherwise pollute our environment.
-                            Each bag undergoes a specialized manufacturing process that melts down and reforms waste
-                            plastic bags into strong, lightweight, and water-resistant material.
-                            The recycled plastic is woven into durable fabric that maintains flexibility while providing
-                            exceptional strength for daily use.
+                            Our recycled bags are made from 100% post-consumer waste plastic bags collected, cleaned,
+                            and upcycled into strong, lightweight, and water-resistant fabric.
+                            The process melts discarded plastic shopping and grocery bags to create durable material
+                            that offers flexibility and daily use strength.
+                            Each bag helps prevent plastic waste from polluting our environment by giving it a new,
+                            long-lasting purpose.
                         </p>
                         <p class="text-gray-700">
-                            <b>Features & Benefits:</b>
-                            Perfect for shopping, travel, or everyday carrying needs, these bags feature reinforced
-                            stitching and comfortable handles designed to withstand heavy loads. Available in various
-                            sizes and colors, our recycled bags can be customized with eco-friendly printing using
-                            soy-based inks. The bags feature a protective coating that enhances durability while
-                            maintaining their eco-friendly credentials.
-                            These bags are designed to replace hundreds of single-use plastic bags throughout their
-                            lifetime, breaking the cycle of plastic waste and creating a truly circular
-                            economy solution.
+                            <b> Features & Benefits:</b>
+                            Ideal for shopping, travel, and everyday use, these bags feature reinforced stitching and
+                            comfortable handles. Available in various sizes and customizable with eco-friendly printing,
+                            each bag replaces hundreds of single-use plastic bags, supporting a circular economy and
+                            reducing plastic waste.
+                            Their sturdy, reusable design encourages sustainable habits and helps build a greener
+                            future.
                         </p>
                     </div>
+                </div>
+            </div>
 
-                    <div class="bg-gradient-to-r from-green-50 via-green-100 to-green-50 p-4 rounded-lg shadow-md my-6">
-                        <!-- Changed my-12 to my-6 -->
-                        <h2 class="text-xl font-bold text-green-700 mb-4">Environmental Impact</h2>
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                            <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-tint text-green-600 mr-2"></i>
-                                    <h3 class="font-semibold">Plastic Waste Reduction</h3>
-                                </div>
-                                <p class="text-sm text-gray-700">Each bag is made from approximately 50-75 discarded
-                                    plastic bags, preventing them from entering landfills or polluting oceans.</p>
-                            </div>
-                            <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-leaf text-green-600 mr-2"></i>
-                                    <h3 class="font-semibold">Carbon Footprint</h3>
-                                </div>
-                                <p class="text-sm text-gray-700">Reduces CO2 emissions by 80% compared to manufacturing
-                                    new plastic bags from virgin materials.</p>
-                            </div>
-                            <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-tree text-green-600 mr-2"></i>
-                                    <h3 class="font-semibold">Resource Conservation</h3>
-                                </div>
-                                <p class="text-sm text-gray-700">Uses 70% less energy and 60% less water in production
-                                    versus creating new plastic bags.</p>
-                            </div>
-                            <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-recycle text-green-600 mr-2"></i>
-                                    <h3 class="font-semibold">Circular Economy</h3>
-                                </div>
-                                <p class="text-sm text-gray-700">Creates a closed-loop system where waste plastic bags
-                                    become new reusable products.</p>
-                            </div>
-                            <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
-                                <div class="flex items-center mb-2">
-                                    <i class="fas fa-sync-alt text-green-600 mr-2"></i>
-                                    <h3 class="font-semibold">Lifetime Impact</h3>
-                                </div>
-                                <p class="text-sm text-gray-700">Replaces up to 1,000 single-use plastic bags over its
-                                    lifespan, breaking the cycle of plastic waste.</p>
-                            </div>
+            <!-- Environmental Impact Section -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-md mb-6">
+                <h2 class="text-xl font-bold text-green-700 mb-4">Environmental Impact</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-tint text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Plastic Waste Reduction</h3>
                         </div>
+                        <p class="text-sm text-gray-700">Each bag repurposes 3-5 discarded plastic bottles or equivalent
+                            plastic waste,
+                            directly reducing the volume of plastic entering landfills and oceans.</p>
+                    </div>
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-leaf text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Carbon Footprint Reduction</h3>
+                        </div>
+                        <p class="text-sm text-gray-700">Manufacturing bags from recycled plastics uses up to 60% less
+                            energy and produces significantly fewer CO₂
+                            emissions compared to virgin plastic or polyester bag production..</p>
+                    </div>
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-tree text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Resource Conservation</h3>
+                        </div>
+                        <p class="text-sm text-gray-700">Minimizes the extraction of raw petroleum resources by reusing
+                            existing plastics,
+                            conserving non-renewable materials and reducing water consumption in the production process.
+                        </p>
+                    </div>
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-recycle text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Circular Economy</h3>
+                        </div>
+                        <p class="text-sm text-gray-700">Transforms post-consumer waste into durable, reusable bags,
+                            promoting the circular economy
+                            by extending the life cycle of plastic materials.</p>
+                    </div>
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-sync-alt text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Long-Term Impact</h3>
+                        </div>
+                        <p class="text-sm text-gray-700">Each reusable bag can replace hundreds of single-use plastic
+                            bags throughout its lifetime,
+                            helping consumers significantly reduce plastic bag dependency and associated waste.</p>
                     </div>
                 </div>
             </div>
@@ -217,20 +467,19 @@
                 <div class="border-b border-gray-200">
                     <nav class="flex -mb-px">
                         <button id="specs-tab"
-                            class="tab-button active py-4 px-6 text-center border-b-2 font-medium text-sm border-green-500 text-green-600">
+                            class="tab-button active py-4 px-6 text-center border-b-2 font-medium text-sm border-green-500 text-green-500 hover:text-gray-700 hover:border-gray-300"
+                            data-tab="specs">
                             Specifications
                         </button>
                         <button id="features-tab"
-                            class="tab-button py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            class="tab-button py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                            data-tab="features">
                             Features
                         </button>
                         <button id="materials-tab"
-                            class="tab-button py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                            class="tab-button py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                            data-tab="materials">
                             Materials
-                        </button>
-                        <button id="reviews-tab"
-                            class="tab-button py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                            Reviews
                         </button>
                     </nav>
                 </div>
@@ -238,213 +487,124 @@
                 <div class="p-6">
                     <!-- Specifications Content -->
                     <div id="specs-content" class="tab-content active">
-                        <table class="specs-table">
-                            <tr>
-                                <td>Dimensions</td>
-                                <td>A5 (148 × 210 mm) or A4 (210 × 297 mm)</td>
+                        <table class="w-full">
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Design</td>
+                                <td class="py-2">Sleek, nautical-inspired design</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Material</td>
+                                <td class="py-2">100% Recycled Plastics</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Usage Application</td>
+                                <td class="py-2">Gift wrapping, party favors, thank-you gifts</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Durability</td>
+                                <td class="py-2">Strong, long-lasting, suitable for daily use</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Customization</td>
+                                <td class="py-2">Can be printed with eco-friendly inks</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Recycled Content</td>
+                                <td class="py-2">Made from post-consumer plastic waste</td>
                             </tr>
                             <tr>
-                                <td>Page Count</td>
-                                <td>80, 100, or 120 pages (40, 50, or 60 sheets)</td>
-                            </tr>
-                            <tr>
-                                <td>Paper Weight</td>
-                                <td>90 gsm (thick, bleed-resistant)</td>
-                            </tr>
-                            <tr>
-                                <td>Cover Material</td>
-                                <td>Recycled kraft paper with water-based coating</td>
-                            </tr>
-                            <tr>
-                                <td>Binding</td>
-                                <td>Sewn binding with reinforced spine</td>
-                            </tr>
-                            <tr>
-                                <td>Page Style</td>
-                                <td>Lined, blank, dot grid, or grid options</td>
-                            </tr>
-                            <tr>
-                                <td>Recycled Content</td>
-                                <td>100% post-consumer recycled paper</td>
-                            </tr>
-                            <tr>
-                                <td>Ink</td>
-                                <td>Soy-based, non-toxic printing</td>
-                            </tr>
-                            <tr>
-                                <td>Packaging</td>
-                                <td>100% recycled and recyclable cardboard</td>
+                                <td class="py-2 font-medium">Manufacturing</td>
+                                <td class="py-2">Produced using eco-conscious, upcycling processes</td>
                             </tr>
                         </table>
                     </div>
 
                     <!-- Features Content -->
-                    <div id="features-content" class="tab-content hidden">
+                    <div id="features-content" class="tab-content">
                         <div class="space-y-4">
                             <div class="flex items-start">
                                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h3 class="font-semibold text-gray-800">Premium Writing Surface</h3>
-                                    <p class="text-gray-700">Smooth, high-quality recycled paper that works
-                                        beautifully
-                                        with all writing instruments, from fountain pens to pencils.</p>
+                                    <h3 class="font-semibold text-gray-800">Durable & Long-Lasting</h3>
+                                    <p class="text-gray-700">Strong material construction ensures the bags can be reused
+                                        multiple times without tearing.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
                                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h3 class="font-semibold text-gray-800">Lay-Flat Design</h3>
-                                    <p class="text-gray-700">Sewn binding allows the notebook to lie completely
-                                        flat
-                                        when open for comfortable writing and sketching.</p>
+                                    <h3 class="font-semibold text-gray-800">Eco-Friendly Material</h3>
+                                    <p class="text-gray-700">Made from 100% recycled plastics, reducing landfill waste
+                                        and supporting circular economy practices.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
                                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h3 class="font-semibold text-gray-800">Durable Construction</h3>
-                                    <p class="text-gray-700">Reinforced spine and thick cover protect your notes
-                                        while
-                                        maintaining flexibility.</p>
+                                    <h3 class="font-semibold text-gray-800">Multipurpose Use</h3>
+                                    <p class="text-gray-700">Suitable for shopping, travel, party favors, thank-you
+                                        gifts, and corporate gifting.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
                                 <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h3 class="font-semibold text-gray-800">Eco-Conscious Design</h3>
-                                    <p class="text-gray-700">Every component, from paper to ink to packaging, is
-                                        selected for minimal environmental impact.</p>
+                                    <h3 class="font-semibold text-gray-800">Water-Resistant</h3>
+                                    <p class="text-gray-700">Offers protection against light moisture and spills, making
+                                        it practical for various settings.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Supports Sustainability</h3>
+                                    <p class="text-gray-700">Each bag helps reduce plastic pollution and promotes
+                                        sustainable consumer habits.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Materials Content -->
-                    <div id="materials-content" class="tab-content hidden">
+                    <div id="materials-content" class="tab-content">
                         <div class="space-y-6">
                             <div>
-                                <h3 class="font-semibold text-gray-800 mb-2">Paper</h3>
+                                <h3 class="font-semibold text-gray-800 mb-2">Recycled Plastic Source</h3>
                                 <p class="text-gray-700">
-                                    Made from 100% post-consumer recycled office paper. The recycling process
-                                    removes
-                                    inks and contaminants while
-                                    maintaining fiber strength. No chlorine bleaching is used in the whitening
-                                    process.
+                                    Made from 100% post-consumer recycled plastics, including discarded polyester
+                                    fabrics, plastic bottles, and shopping bags.
                                 </p>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-800 mb-2">Cover</h3>
+                                <h3 class="font-semibold text-gray-800 mb-2">Processing Method</h3>
                                 <p class="text-gray-700">
-                                    Constructed from recycled kraft paper with a water-based protective coating.
-                                    The
-                                    natural kraft color varies slightly
-                                    between batches due to the recycled content, giving each notebook a unique
-                                    character.
+                                    Collected plastic waste is cleaned, shredded, and melted into durable plastic fibers
+                                    or sheets using energy-efficient recycling processes.
                                 </p>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-800 mb-2">Ink</h3>
+                                <h3 class="font-semibold text-gray-800 mb-2">Fabric Formation</h3>
                                 <p class="text-gray-700">
-                                    All printing uses soy-based inks which are more environmentally friendly
-                                    than
-                                    petroleum-based inks. These inks are
-                                    easier to remove during paper recycling and produce brighter colors with
-                                    less ink
-                                    coverage.
+                                    The recycled plastic is woven or pressed into high-quality, lightweight, and
+                                    water-resistant fabric suitable for daily use.
                                 </p>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-gray-800 mb-2">Binding</h3>
+                                <h3 class="font-semibold text-gray-800 mb-2">Handles</h3>
                                 <p class="text-gray-700">
-                                    The notebook uses a traditional sewn binding with cotton thread. This method
-                                    is more
-                                    durable than glue binding and
-                                    allows the notebook to lie flat. The thread is unbleached and undyed for
-                                    minimal
-                                    processing.
+                                    Made from either recycled leather, durable faux leather, or reinforced recycled
+                                    fabric to ensure comfort and strength.
                                 </p>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Reviews Content -->
-                    <div id="reviews-content" class="tab-content hidden">
-                        <div class="space-y-6">
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <div class="flex justify-between items-start mb-2">
-                                    <div>
-                                        <h3 class="font-semibold">Sarah J.</h3>
-                                        <div class="flex text-yellow-400 text-sm">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <span class="text-sm text-gray-500">May 12, 2023</span>
-                                </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Coating</h3>
                                 <p class="text-gray-700">
-                                    "I'm amazed by the quality of this recycled notebook! The paper is smooth
-                                    and thick
-                                    - no bleed-through with my fountain pens.
-                                    Knowing it's made from recycled materials makes me feel good about my
-                                    purchase."
+                                    Finished with a non-toxic, water-resistant coating to enhance longevity while
+                                    ensuring recyclability at the end of life.
                                 </p>
                             </div>
-
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <div class="flex justify-between items-start mb-2">
-                                    <div>
-                                        <h3 class="font-semibold">Michael T.</h3>
-                                        <div class="flex text-yellow-400 text-sm">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                        </div>
-                                    </div>
-                                    <span class="text-sm text-gray-500">April 28, 2023</span>
-                                </div>
-                                <p class="text-gray-700">
-                                    "Great notebook for journaling. The paper quality is excellent and the
-                                    notebook lies
-                                    flat which is perfect for writing.
-                                    The only reason I didn't give 5 stars is that I wish they offered more cover
-                                    color
-                                    options."
-                                </p>
-                            </div>
-
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <div class="flex justify-between items-start mb-2">
-                                    <div>
-                                        <h3 class="font-semibold">Emma R.</h3>
-                                        <div class="flex text-yellow-400 text-sm">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <span class="text-sm text-gray-500">March 15, 2023</span>
-                                </div>
-                                <p class="text-gray-700">
-                                    "As an environmental science teacher, I appreciate products that walk the
-                                    talk.
-                                    These notebooks are now required supplies
-                                    for my classes. The students love them too - the paper quality is better
-                                    than many
-                                    non-recycled notebooks we've used."
-                                </p>
-                            </div>
-
-                            <button
-                                class="mt-4 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-300">
-                                Write a Review
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -455,129 +615,54 @@
                 <h2 class="text-2xl font-bold text-green-800 mb-8">You Might Also Like</h2>
                 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     <!-- Related Product 1 -->
-                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1587463272361-565200f82b33?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                                alt="Recycled Pen" class="w-full h-48 object-cover">
-                            <div class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded-full">
-                                -30% OFF
+                    <a href="momento.html" style="text-decoration: none; color: inherit;">
+                        <div
+                            class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                            <div class="relative overflow-hidden">
+                                <img src="https://media.licdn.com/dms/image/v2/D5622AQH5JDQzPd5Ymg/feedshare-shrink_2048_1536/B56ZbDMnLsHgA0-/0/1747031591747?e=1752710400&v=beta&t=dfEIVqczT07bqL6ZGV-skeXqLQOll9LCWUVcSlGdJ4A"
+                                    alt="Recycled Pen"
+                                    class="w-full h-48 object-cover transition duration-300 hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-green-800 mb-1">Momentos made of Recycled Plastics
+                                </h3>
+
                             </div>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-green-800 mb-1">Bamboo & Recycled Plastic Pen
-                            </h3>
-                            <div class="flex items-center mb-2">
-                                <div class="flex text-yellow-400 text-sm">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span class="text-gray-600 text-xs ml-1">(87 reviews)</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <span class="text-green-600 font-bold">$8.99</span>
-                                    <span class="text-gray-500 text-sm line-through ml-1">$12.99</span>
-                                </div>
-                                <button class="text-green-600 hover:text-green-800">
-                                    <i class="fas fa-cart-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
 
                     <!-- Related Product 2 -->
-                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                                alt="Eco Pencils" class="w-full h-48 object-cover">
-                        </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-green-800 mb-1">Plantable Seed Pencils (Set of
-                                12)
-                            </h3>
-                            <div class="flex items-center mb-2">
-                                <div class="flex text-yellow-400 text-sm">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <span class="text-gray-600 text-xs ml-1">(54 reviews)</span>
+                    <a href="notepad.html" style="text-decoration: none; color: inherit;">
+                        <div
+                            class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                            <div class="relative overflow-hidden">
+                                <img src="/Assets/notepad-1.jpg" alt="Eco Pencils"
+                                    class="w-full h-48 object-cover transition duration-300 hover:scale-105">
                             </div>
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <span class="text-green-600 font-bold">$14.99</span>
-                                </div>
-                                <button class="text-green-600 hover:text-green-800">
-                                    <i class="fas fa-cart-plus"></i>
-                                </button>
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-green-800 mb-1">Recycled Notepads
+                                </h3>
                             </div>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Related Product 3 -->
-                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1587033411394-37a0099e1d1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                                alt="Recycled Binder" class="w-full h-48 object-cover">
-                            <div class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded-full">
-                                NEW
+                    <a href="seed-pencil.html" style="text-decoration: none; color: inherit;">
+                        <div
+                            class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                            <div class="relative overflow-hidden">
+                                <img src="/Assets/pencil-7.jpg" alt="Recycled Binder"
+                                    class="w-full h-48 object-cover transition duration-300 hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-green-800 mb-1">Recycled Seed Pencils</h3>
                             </div>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-lg text-green-800 mb-1">Recycled Cardboard Binder</h3>
-                            <div class="flex items-center mb-2">
-                                <div class="flex text-yellow-400 text-sm">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <span class="text-gray-600 text-xs ml-1">(23 reviews)</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <span class="text-green-600 font-bold">$19.99</span>
-                                </div>
-                                <button class="text-green-600 hover:text-green-800">
-                                    <i class="fas fa-cart-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Newsletter Section -->
-    <!-- <section class="bg-green-700 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex md:items-center md:justify-between">
-                <div class="md:w-1/2 mb-6 md:mb-0">
-                    <h2 class="text-2xl font-bold">Join Our Green Community</h2>
-                    <p class="mt-2 text-green-100">Subscribe to our newsletter for sustainable living tips, exclusive
-                        offers, and updates on new eco-friendly products.</p>
-                </div>
-                <div class="md:w-1/2">
-                    <form class="flex">
-                        <input type="email" placeholder="Your email address"
-                            class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
-                        <button type="submit"
-                            class="bg-green-900 hover:bg-green-800 px-6 py-2 rounded-r-lg transition duration-300">
-                            Subscribe
-                        </button>
-                    </form>
-                    <p class="mt-2 text-xs text-green-200">We respect your privacy. Unsubscribe at any time.</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Footer -->
     <footer class="bg-green-900 text-white">
@@ -585,12 +670,12 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-recycle text-3xl text-green-300 mr-3"></i>
-                        <span class="text-xl font-bold">Glamscrap<br>Technologies</span>
+                        <img src="/Assets/Glamscrap logo.png" alt="Glamscrap Logo" class="h-11 w-11 rounded-full"> <span
+                            class="text-xl font-bold"> Glamscrap<br>Technologies</span>
                     </div>
                     <p class="text-green-200 text-sm">
                         Glamscrap Technologies Pvt Ltd is a sustainability-driven brand turning waste into eco-friendly
-                        alternatives, promoting circular economy and inspiring greener choices for a better tomorrow.
+                        alternatives, promoting circular economy and inspiring greener choices for a better tomorrow.
                     </p>
                     <div class="mt-4 flex space-x-4">
                         <a href="mailto:glamscraptechnologies@gmail.com" class="social-icon"><i
@@ -602,24 +687,14 @@
                     </div>
                 </div>
 
-                <!-- <div>
-                    <h3 class="text-lg font-semibold mb-4">Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="footer-link">E-Waste Recycling</a></li>
-                        <li><a href="#" class="footer-link">Plastic Upcycling</a></li>
-                        <li><a href="#" class="footer-link">Industrial Waste Mgmt</a></li>
-                        <li><a href="#" class="footer-link">Compost Solutions</a></li>
-                        <li><a href="#" class="footer-link">Hazardous Waste</a></li>
-                    </ul>
-                </div> -->
-
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Products</h3>
                     <ul class="space-y-2">
                         <li><a href="seed-pen.html" class="footer-link">Recycled Seed Pens</a></li>
                         <li><a href="seed-pencil.html" class="footer-link">Recycled Seed Pencils</a></li>
                         <li><a href="notepad.html" class="footer-link">Recycled Notepads</a></li>
-                        <li><a href="momento.html" class="footer-link">Momentos made of Recycled Plastics</a></li>
+                        <li><a href="momento.html" class="footer-link">Momentos made of Recycled Plastics</a>
+                        </li>
                         <li><a href="bag.html" class="footer-link">Recycled Bags</a></li>
                     </ul>
                 </div>
@@ -627,9 +702,10 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="#about" class="footer-link">About Us</a></li>
-                        <li><a href="#services" class="footer-link">Services we offer</a></li>
-                        <!-- <li><a href="#" class="footer-link">Sustainability Goals</a></li> -->
+                        <li><a href="/index.html#about" class="footer-link">About Us</a></li>
+                        <li><a href="/index.html#achievements" class="footer-link">Achievements</a></li>
+                        <li><a href="/index.html#services" class="footer-link">Our Services</a></li>
+                        <li><a href="/index.html#team" class="footer-link">Our Team</a></li>
                         <li><a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited"
                                 class="footer-link">News & Media</a></li>
                     </ul>
@@ -640,8 +716,6 @@
                     <ul class="space-y-2">
                         <li><a href="/legal-notices/privacy-policy.html" class="footer-link">Privacy Policy</a></li>
                         <li><a href="/legal-notices/terms-of-service.html" class="footer-link">Terms of Service</a></li>
-                        <li><a href="/legal-notices/environmental-policy.html" class="footer-link">Environmental
-                                Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -651,9 +725,6 @@
                     © 2025 Glamscrap Technologies Pvt. Ltd. All rights reserved.
                 </p>
                 <div class="flex space-x-6">
-                    <!-- <img src="https://via.placeholder.com/40x25?text=ISO" alt="ISO Certified" class="h-6">
-                    <img src="https://via.placeholder.com/40x25?text=EPR" alt="EPR Compliance" class="h-6">
-                    <img src="https://via.placeholder.com/40x25?text=R2" alt="R2 Certified" class="h-6"> -->
                     <p style="font-size: 16px;">Developed by <a href="https://www.linkedin.com/in/alan-s-9385a328a/"
                             class="developer">Alan
                             S.</a> and <a href="https://www.linkedin.com/in/madhujith-b-a5a67528b"
@@ -668,15 +739,10 @@
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Image gallery functionality
-        function changeImage(element) {
-            const mainImage = document.getElementById('mainImage');
-            mainImage.src = element.src;
-            mainImage.alt = element.alt;
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
         }
 
         // Tab functionality
@@ -685,41 +751,102 @@
 
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('active', 'text-green-600', 'border-green-500');
-                    btn.classList.add('text-gray-500', 'border-transparent');
+                // Remove active classes from all tabs
+                tabButtons.forEach(tab => {
+                    tab.classList.remove('active', 'border-green-500', 'text-green-500');
+                    tab.classList.add('border-transparent', 'text-gray-500');
                 });
-                tabContents.forEach(content => content.classList.add('hidden'));
 
-                // Add active class to clicked button
-                button.classList.remove('text-gray-500', 'border-transparent');
-                button.classList.add('active', 'text-green-600', 'border-green-500');
+                // Add active classes to clicked tab
+                button.classList.add('active', 'border-green-500', 'text-green-500');
+                button.classList.remove('border-transparent', 'text-gray-500');
 
-                // Show corresponding content
-                const tabId = button.id.replace('-tab', '-content');
-                document.getElementById(tabId).classList.remove('hidden');
+                // Hide all tab content
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    content.classList.add('hidden');
+                });
+
+                // Show corresponding tab content
+                const tabName = button.getAttribute('data-tab');
+                const activeContent = document.getElementById(`${tabName}-content`);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                    activeContent.classList.remove('hidden');
+                }
             });
         });
 
-        // Quantity selector functionality
-        const minusBtn = document.querySelector('.bg-green-100 button:first-child');
-        const plusBtn = document.querySelector('.bg-green-100 button:last-child');
-        const quantityDisplay = document.querySelector('.bg-green-100 span');
+        // Slideshow functionality
+        let slideIndex = 1;
+        showSlides(slideIndex);
 
-        let quantity = 1;
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
 
-        minusBtn.addEventListener('click', () => {
-            if (quantity > 1) {
-                quantity--;
-                quantityDisplay.textContent = quantity;
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("slide");
+            const indicators = document.getElementsByClassName("indicator");
+            const thumbnails = document.querySelectorAll(".product-gallery img");
+
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
             }
-        });
 
-        plusBtn.addEventListener('click', () => {
-            quantity++;
-            quantityDisplay.textContent = quantity;
-        });
+            // Remove active class from all indicators
+            for (i = 0; i < indicators.length; i++) {
+                indicators[i].classList.remove("active");
+            }
+
+            // Remove active class from all thumbnails
+            for (i = 0; i < thumbnails.length; i++) {
+                thumbnails[i].classList.remove("active");
+            }
+
+            // Show current slide
+            slides[slideIndex - 1].classList.add("active");
+
+            // Activate current indicator
+            if (indicators[slideIndex - 1]) {
+                indicators[slideIndex - 1].classList.add("active");
+            }
+
+            // Activate current thumbnail
+            if (thumbnails[slideIndex - 1]) {
+                thumbnails[slideIndex - 1].classList.add("active");
+            }
+        }
+
+        // Auto-advance slideshow
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Quantity controls
+        function updateQuantity(change) {
+            const quantityElement = document.getElementById('quantity');
+            if (quantityElement) {
+                let quantity = parseInt(quantityElement.textContent);
+                quantity += change;
+                if (quantity < 1) quantity = 1;
+                quantityElement.textContent = quantity;
+            }
+        }
+
+        // Make functions globally available if needed
+        window.changeSlide = changeSlide;
+        window.currentSlide = currentSlide;
+        window.updateQuantity = updateQuantity;
     </script>
 </body>
 
