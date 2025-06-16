@@ -4,22 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details | GreenCycle</title>
+    <title>Recycled Notepads | Glamscrap Technologies Private Limited</title>
+    <link rel="icon" href="/Assets/Glamscrap logo.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Enhanced slideshow styles */
         .slideshow-container {
             position: relative;
@@ -245,6 +234,18 @@
             color: white;
             text-decoration: underline;
         }
+
+        body {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
@@ -336,18 +337,19 @@
                     <div class="slideshow-container">
                         <!-- Slides -->
                         <div class="slide active">
-                            <img src="/Assets/notepad-2.jpg" alt="Recycled Bags - Main View"
+                            <img src="/Assets/notepad-2.jpg" alt="Recycled Notepads - Main View"
                                 class="main-image shadow-lg">
                         </div>
                         <div class="slide">
-                            <img src="/Assets/notepad-3.jpg" alt="Recycled Bags - Close-up"
+                            <img src="/Assets/notepad-3.jpg" alt="Recycled Notepads - Close-up"
                                 class="main-image shadow-lg">
                         </div>
                         <div class="slide">
-                            <img src="/Assets/notepad-1.jpg" alt="Recycled Bags - In Use" class="main-image shadow-lg">
+                            <img src="/Assets/notepad-1.jpg" alt="Recycled Notepads - In Use"
+                                class="main-image shadow-lg">
                         </div>
                         <div class="slide">
-                            <img src="/Assets/np-1p1pc-combo4.jpg" alt="Recycled Bags - Variety"
+                            <img src="/Assets/np-1p1pc-combo4.jpg" alt="Recycled Notepads - Variety"
                                 class="main-image shadow-lg">
                         </div>
 
@@ -370,17 +372,18 @@
 
                     <!-- Thumbnail gallery -->
                     <div class="product-gallery">
-                        <img src="/Assets/notepad-2.jpg" alt="Recycled Bags - Main View" class="active"
+                        <img src="/Assets/notepad-2.jpg" alt="Recycled Notepads - Main View" class="active"
                             onclick="currentSlide(1)">
-                        <img src="/Assets/notepad-3.jpg" alt="Recycled Bags - Close-up" onclick="currentSlide(2)">
-                        <img src="/Assets/notepad-1.jpg" alt="Recycled Bags - In Use" onclick="currentSlide(3)">
-                        <img src="/Assets/np-1p1pc-combo4.jpg" alt="Recycled Bags - Variety" onclick="currentSlide(4)">
+                        <img src="/Assets/notepad-3.jpg" alt="Recycled Notepads - Close-up" onclick="currentSlide(2)">
+                        <img src="/Assets/notepad-1.jpg" alt="Recycled Notepads - In Use" onclick="currentSlide(3)">
+                        <img src="/Assets/np-1p1pc-combo4.jpg" alt="Recycled Notepads - Variety"
+                            onclick="currentSlide(4)">
                     </div>
                 </div>
 
                 <!-- Product Info -->
                 <div class="lg:w-1/2">
-                    <h1 class="text-3xl md:text-4xl font-bold text-green-800 mb-2">Recycled Notepad</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold text-green-800 mb-2">Recycled Notepads</h1>
                     <br>
                     <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                         <h2 class="text-xl font-bold text-green-700 mb-4">Product Description</h2>
@@ -628,11 +631,11 @@
                         <div
                             class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
                             <div class="relative overflow-hidden">
-                                <img src="/Assets/pencil-7.jpg" alt="Recycled Pen"
+                                <img src="/Assets/pencil-7.jpg" alt="Recycled Seed Pencils"
                                     class="w-full h-48 object-cover transition duration-300 hover:scale-105">
                             </div>
                             <div class="p-4">
-                                <h3 class="font-semibold text-lg text-green-800 mb-1">Seed Pencils</h3>
+                                <h3 class="font-semibold text-lg text-green-800 mb-1">Recycled Seed Pencils</h3>
                             </div>
                         </div>
                     </a>
@@ -642,11 +645,11 @@
                         <div
                             class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
                             <div class="relative overflow-hidden">
-                                <img src="/Assets/pen-6.jpg" alt="Eco Pencils"
+                                <img src="/Assets/pen-6.jpg" alt="Recycled Seed Pens"
                                     class="w-full h-48 object-cover transition duration-300 hover:scale-105">
                             </div>
                             <div class="p-4">
-                                <h3 class="font-semibold text-lg text-green-800 mb-1">Seed Pens</h3>
+                                <h3 class="font-semibold text-lg text-green-800 mb-1">Recycled Seed Pens</h3>
                             </div>
                         </div>
                     </a>
@@ -656,11 +659,8 @@
                         <div
                             class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
                             <div class="relative overflow-hidden">
-                                <img src="/Assets/Bagsample.jpg" alt="Recycled Binder"
+                                <img src="/Assets/Bagsample.jpg" alt="Recycled Bags"
                                     class="w-full h-48 object-cover transition duration-300 hover:scale-105">
-                                <div class="absolute top-2 right-2 text-white text-xs px-2 py-1 rounded-full">
-                                    NEW
-                                </div>
                             </div>
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-green-800 mb-1">Recycled Bags</h3>
@@ -701,7 +701,7 @@
                         <li><a href="seed-pen.html" class="footer-link">Recycled Seed Pens</a></li>
                         <li><a href="seed-pencil.html" class="footer-link">Recycled Seed Pencils</a></li>
                         <li><a href="notepad.html" class="footer-link">Recycled Notepads</a></li>
-                        <li><a href="momento.html" class="footer-link">Momentos made of Recycled Plastics</a>
+                        <li><a href="momento.html" class="footer-link">Eco-Friendly Customized Trophies</a>
                         </li>
                         <li><a href="bag.html" class="footer-link">Recycled Bags</a></li>
                     </ul>

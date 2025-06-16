@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Friendly Customized Trophies | Glamscrap Technologies Private Limited</title>
+    <link rel="icon" href="/Assets/Glamscrap logo.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Enhanced slideshow styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .slide-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .product-gallery {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+            overflow-x: auto;
+            padding: 8px 0;
+        }
+
+        .product-gallery img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .product-gallery img:hover,
+        .product-gallery img.active {
+            border-color: #16a34a;
+            transform: scale(1.05);
+        }
+
+        /* Existing styles from original */
+        .leaf-pattern {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 20c0-10 10-20 20-10s10 20 0 30-20 0-20-20z" fill="%23f0fdf4" opacity="0.1"/></svg>');
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .specs-table td:first-child {
+            font-weight: 600;
+            color: #374151;
+            width: 30%;
+        }
+
+        .eco-benefit {
+            transition: transform 0.3s ease;
+        }
+
+        .eco-benefit:hover {
+            transform: translateY(-2px);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-button.active {
+            border-color: #16a34a !important;
+            color: #16a34a !important;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Ensure full height usage */
+        body {
+            min-height: 100vh;
+        }
+
+        /* Logo styling */
+        .logo-container img {
+            height: 40px;
+            width: auto;
+            margin-right: 8px;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #a7f3d0;
+        }
+
+        .mobile-nav-link {
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-link:hover {
+            background-color: #065f46;
+            color: white;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #a7f3d0;
+            transform: scale(1.1);
+        }
+
+        .footer-link {
+            color: #a7f3d0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .developer {
+            color: #a7f3d0;
+            transition: all 0.3s ease;
+        }
+
+        .developer:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        body {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-green-50">
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center space-x-3">
+                        <img src="/Assets/Glamscrap logo.png" alt="Glamscrap Logo" class="h-11 w-11 rounded-full">
+                        <div>
+                            <span class="text-lg font-bold block">Glamscrap Technologies</span>
+                            <span class="text-xs block">Private Limited</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-6">
+                    <a href="/index.html#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="/index.html#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium">About</a>
+                    <a href="/index.html#services"
+                        class="nav-link px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                    <a href="/index.html#products"
+                        class="nav-link px-3 py-2 rounded-md text-sm font-medium">Products</a>
+                    <a href="/index.html#achievements"
+                        class="nav-link px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
+                    <a href="/index.html#team" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Our Team</a>
+                    <a href="/index.html#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    <div class="flex space-x-4 ml-4">
+                        <a href="mailto:glamscraptechnologies@gmail.com" class="social-icon"><i
+                                class="fa-solid fa-envelope"></i></a>
+                        <a href="https://instagram.com/recyclegifts" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited"
+                            class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="menu-btn" class="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-700 pb-3">
+            <div class="px-2 pt-2 space-y-1 sm:px-3">
+                <a href="/index.html#home"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="/index.html#about"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="/index.html#services"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="/index.html#products"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Products</a>
+                <a href="/index.html#achievements"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Achievements</a>
+                <a href="/index.html#team" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Our
+                    Team</a>
+                <a href="/index.html#contact"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                <div class="flex justify-center space-x-5 pt-3">
+                    <a href="mailto:glamscraptechnologies@gmail.com" class="social-icon"><i
+                            class="fa-solid fa-envelope"></i></a>
+                    <a href="https://instagram.com/recyclegifts" class="social-icon"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited"
+                        class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="py-12 leaf-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumb -->
+            <div class="flex items-center text-sm text-green-600 mb-6">
+                <a href="/index.html" class="hover:underline">Home</a>
+                <span class="mx-2">/</span>
+                <a href="/index.html#products" class="hover:underline">Products</a>
+                <span class="mx-2">/</span>
+                <span class="text-green-800">Eco-Friendly Customized Trophies</span>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Enhanced Product Images with Slideshow -->
+                <div class="lg:w-1/2">
+                    <div class="slideshow-container">
+                        <!-- Slides -->
+                        <div class="slide active">
+                            <img src="https://media.licdn.com/dms/image/v2/D5622AQEOerAtGcXYQA/feedshare-shrink_1280/B56ZbDMnLqGsAk-/0/1747031589869?e=1752710400&v=beta&t=oPyzxT5IO1baEuiZX71v_pICS30q-GyZy04tDHKSC-A"
+                                alt="Eco-Friendly Customized Trophies - Main View" class="main-image shadow-lg">
+                        </div>
+                        <div class="slide">
+                            <img src="https://media.licdn.com/dms/image/v2/D5622AQEeNQoi5JPa8w/feedshare-shrink_1280/B56ZbDMnLaGgAk-/0/1747031589690?e=1752710400&v=beta&t=GKVAVakjEb4KMp575gasbrnoKGeejNV75YmO-4HScoA"
+                                alt="Eco-Friendly Customized Trophies - Close-up" class="main-image shadow-lg">
+                        </div>
+                        <div class="slide">
+                            <img src="https://media.licdn.com/dms/image/v2/D5622AQH5JDQzPd5Ymg/feedshare-shrink_2048_1536/B56ZbDMnLsHgA0-/0/1747031591747?e=1752710400&v=beta&t=dfEIVqczT07bqL6ZGV-skeXqLQOll9LCWUVcSlGdJ4A"
+                                alt="Eco-Friendly Customized Trophies - In Use" class="main-image shadow-lg">
+                        </div>
+                        <div class="slide">
+                            <img src="/Assets/momento-1.jpg" alt="Eco-Friendly Customized Trophies - Variety"
+                                class="main-image shadow-lg">
+                        </div>
+
+                        <!-- Navigation arrows -->
+                        <button class="slide-nav prev" onclick="changeSlide(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slide-nav next" onclick="changeSlide(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Slide indicators -->
+                        <div class="slide-indicators">
+                            <span class="indicator active" onclick="currentSlide(1)"></span>
+                            <span class="indicator" onclick="currentSlide(2)"></span>
+                            <span class="indicator" onclick="currentSlide(3)"></span>
+                            <span class="indicator" onclick="currentSlide(4)"></span>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnail gallery -->
+                    <div class="product-gallery">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQEOerAtGcXYQA/feedshare-shrink_1280/B56ZbDMnLqGsAk-/0/1747031589869?e=1752710400&v=beta&t=oPyzxT5IO1baEuiZX71v_pICS30q-GyZy04tDHKSC-A"
+                            alt="Eco-Friendly Customized Trophies - Main View" class="active" onclick="currentSlide(1)">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQEeNQoi5JPa8w/feedshare-shrink_1280/B56ZbDMnLaGgAk-/0/1747031589690?e=1752710400&v=beta&t=GKVAVakjEb4KMp575gasbrnoKGeejNV75YmO-4HScoA"
+                            alt="Eco-Friendly Customized Trophies - Close-up" onclick="currentSlide(2)">
+                        <img src="https://media.licdn.com/dms/image/v2/D5622AQH5JDQzPd5Ymg/feedshare-shrink_2048_1536/B56ZbDMnLsHgA0-/0/1747031591747?e=1752710400&v=beta&t=dfEIVqczT07bqL6ZGV-skeXqLQOll9LCWUVcSlGdJ4A"
+                            alt="Eco-Friendly Customized Trophies - In Use" onclick="currentSlide(3)">
+                        <img src="/Assets/momento-1.jpg" alt="Eco-Friendly Customized Trophies - Variety"
+                            onclick="currentSlide(4)">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="lg:w-1/2">
+                    <h1 class="text-3xl md:text-4xl font-bold text-green-800 mb-2">Eco-Friendly Customized Trophies</h1>
+                    <br>
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h2 class="text-xl font-bold text-green-700 mb-4">Product Description</h2>
+                        <p class="text-gray-700 mb-4">
+                            <b>Manufacturing & Materials:</b>
+                            Our eco-friendly trophies are made from 100% post-consumer recycled plastics like PET
+                            bottles, HDPE containers, and packaging waste. The collected plastic is sorted,
+                            cleaned, shredded, and molded into durable trophy parts using sustainable thermal processes.
+                            Each trophy is customized with laser engraving or eco-friendly UV printing for names, logos,
+                            and achievements, giving a premium finish while reducing plastic waste.
+                        </p>
+                        <p class="text-gray-700">
+                            <b> Features & Benefits:</b>
+                            Perfect for corporate awards, sports events, schools, and community recognition, these
+                            trophies offer modern design with a strong sustainability message.
+                            Available in various sizes and fully customizable, they are durable, weather-resistant, and
+                            suitable for indoor or outdoor display.
+                            Each trophy is a unique symbol of achievement that supports green living and circular
+                            economy values.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environmental Impact Section -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-md mb-6">
+                <h2 class="text-xl font-bold text-green-700 mb-4">Environmental Impact</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-tint text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Plastic Waste Reduction</h3>
+                        </div>
+                        <p class="text-sm text-gray-700">Each trophy prevents approximately 10-15 plastic bottles or
+                            packaging items
+                            from entering landfills by transforming post-consumer waste into long-lasting recognition
+                            pieces.</p>
+                    </div>
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-leaf text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Carbon Footprint</h3>
+                        </div>
+                        <p class="text-sm text-gray-700">Reduces CO₂ emissions by 50% compared to traditional trophy
+                            manufacturing
+                            through energy-efficient upcycling and extended product life.</p>
+                    </div>
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-tree text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Resource Conservation</h3>
+                        </div>
+                        <p class="text-sm text-gray-700">Uses 70% less virgin material and 45% less energy in production
+                            while repurposing waste
+                            plastics that would otherwise pollute the environment.</p>
+                    </div>
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-recycle text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Circular Economy</h3>
+                        </div>
+                        <p class="text-sm text-gray-700">Supports a circular economy by giving discarded plastics a
+                            second life as valuable awards,
+                            reducing demand for new raw materials.</p>
+                    </div>
+                    <div class="eco-benefit bg-green-50 p-4 rounded-lg border border-green-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-sync-alt text-green-600 mr-2"></i>
+                            <h3 class="font-semibold">Lifetime Impact</h3>
+                        </div>
+                        <p class="text-sm text-gray-700">Each trophy stands as a lasting symbol of achievement and
+                            sustainability, reducing plastic waste and
+                            promoting responsible material use across industries.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details Tabs -->
+            <div class="mt-12 bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="border-b border-gray-200">
+                    <nav class="flex -mb-px">
+                        <button id="specs-tab"
+                            class="tab-button active py-4 px-6 text-center border-b-2 font-medium text-sm border-green-500 text-green-500 hover:text-gray-700 hover:border-gray-300"
+                            data-tab="specs">
+                            Specifications
+                        </button>
+                        <button id="features-tab"
+                            class="tab-button py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                            data-tab="features">
+                            Features
+                        </button>
+                        <button id="materials-tab"
+                            class="tab-button py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                            data-tab="materials">
+                            Materials
+                        </button>
+                    </nav>
+                </div>
+
+
+                <div class="p-6">
+                    <!-- Specifications Content -->
+                    <div id="specs-content" class="tab-content active">
+                        <table class="w-full">
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Dimensions</td>
+                                <td class="py-2">160mm x 60mm x 50mm</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Material</td>
+                                <td class="py-2">100% Post-Consumer Recycled Plastics</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Weight</td>
+                                <td class="py-2">200 grams</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Specifications</td>
+                                <td class="py-2">Designs are easily customizable</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Durability</td>
+                                <td class="py-2">Weather-resistant and suitable for both indoor and outdoor display
+                                    without damage over time</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium">Customization Method</td>
+                                <td class="py-2">Sustainable soy-based printing and laser-etched detailing for
+                                    long-lasting personalization</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 font-medium">Manufacturing</td>
+                                <td class="py-2"> Made from recycled plastics using sustainable upcycling and precision
+                                    molding techniques</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Features Content -->
+                    <div id="features-content" class="tab-content">
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Durable Construction</h3>
+                                    <p class="text-gray-700">Made from compressed and molded recycled plastics for a
+                                        sturdy, long-lasting display.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Lightweight & Portable</h3>
+                                    <p class="text-gray-700">Easy to handle and transport while maintaining a premium
+                                        appearance and solid feel.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Multipurpose Use</h3>
+                                    <p class="text-gray-700">Ideal for corporate events, sports awards, academic
+                                        recognition, and eco-friendly gifting.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Upcycled Design</h3>
+                                    <p class="text-gray-700">Crafted from post-consumer plastic waste, reducing landfill
+                                        impact and supporting circular economy.
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Customizable Branding</h3>
+                                    <p class="text-gray-700">Trophies can be personalized with sustainable printing or
+                                        laser engraving for logos, names, and achievements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Materials Content -->
+                    <div id="materials-content" class="tab-content">
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Recycled Plastic Source</h3>
+                                <p class="text-gray-700">
+                                    Made from 100% post-consumer plastic waste including PET bottles, HDPE containers,
+                                    and PP packaging collected from recycling centers.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Plastic Processing Method</h3>
+                                <p class="text-gray-700">
+                                    Plastic waste is cleaned, shredded, and reformed using thermal processing and
+                                    precision molding to create strong, high-quality trophy components.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Safe & Non-Toxic Finishes</h3>
+                                <p class="text-gray-700">
+                                    Finished with eco-friendly, non-toxic coatings and UV printing that are safe for
+                                    indoor and outdoor display without harmful emissions.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">Customizable Components</h3>
+                                <p class="text-gray-700">
+                                    Trophies can be designed with interchangeable nameplates, engraved logos, and
+                                    colored plastic elements for personalized recognition.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2">End-of-Life Options</h3>
+                                <p class="text-gray-700">
+                                    Trophies are fully recyclable, allowing components to be reprocessed and reused,
+                                    supporting a closed-loop material cycle.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold text-green-800 mb-8">You Might Also Like</h2>
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+                    <!-- Related Product 1 -->
+                    <a href="bag.html" style="text-decoration: none; color: inherit;">
+                        <div
+                            class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                            <div class="relative overflow-hidden">
+                                <img src="/Assets/Bagsample.jpg" alt="Recycled Bags"
+                                    class="w-full h-48 object-cover transition duration-300 hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-green-800 mb-1">Recycled Bags</h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Related Product 2 -->
+                    <a href="notepad.html" style="text-decoration: none; color: inherit;">
+                        <div
+                            class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                            <div class="relative overflow-hidden">
+                                <img src="/Assets/notepad-1.jpg" alt="Recycled Notepads"
+                                    class="w-full h-48 object-cover transition duration-300 hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-green-800 mb-1">Recycled Notepads
+                                </h3>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Related Product 3 -->
+                    <a href="seed-pencil.html" style="text-decoration: none; color: inherit;">
+                        <div
+                            class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                            <div class="relative overflow-hidden">
+                                <img src="/Assets/pencil-7.jpg" alt="Recycled Seed Pencils"
+                                    class="w-full h-48 object-cover transition duration-300 hover:scale-105">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-green-800 mb-1">Recycled Seed Pencils</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="/Assets/Glamscrap logo.png" alt="Glamscrap Logo" class="h-11 w-11 rounded-full"> <span
+                            class="text-xl font-bold"> Glamscrap<br>Technologies</span>
+                    </div>
+                    <p class="text-green-200 text-sm">
+                        Glamscrap Technologies Pvt Ltd is a sustainability-driven brand turning waste into eco-friendly
+                        alternatives, promoting circular economy and inspiring greener choices for a better tomorrow.
+                    </p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="mailto:glamscraptechnologies@gmail.com" class="social-icon"><i
+                                class="fa-solid fa-envelope"></i></a>
+                        <a href="https://instagram.com/recyclegifts" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited"
+                            class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="seed-pen.html" class="footer-link">Recycled Seed Pens</a></li>
+                        <li><a href="seed-pencil.html" class="footer-link">Recycled Seed Pencils</a></li>
+                        <li><a href="notepad.html" class="footer-link">Recycled Notepads</a></li>
+                        <li><a href="momento.html" class="footer-link">Eco-Friendly Customized Trophies</a>
+                        </li>
+                        <li><a href="bag.html" class="footer-link">Recycled Bags</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html#about" class="footer-link">About Us</a></li>
+                        <li><a href="/index.html#achievements" class="footer-link">Achievements</a></li>
+                        <li><a href="/index.html#services" class="footer-link">Our Services</a></li>
+                        <li><a href="/index.html#team" class="footer-link">Our Team</a></li>
+                        <li><a href="https://www.linkedin.com/company/glamscrap-technologies-private-limited"
+                                class="footer-link">News & Media</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal Notices</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/legal-notices/privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="/legal-notices/terms-of-service.html" class="footer-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-green-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-green-300 text-sm mb-4 md:mb-0">
+                    © 2025 Glamscrap Technologies Pvt. Ltd. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <p style="font-size: 16px;">Developed by <a href="https://www.linkedin.com/in/alan-s-9385a328a/"
+                            class="developer">Alan
+                            S.</a> and <a href="https://www.linkedin.com/in/madhujith-b-a5a67528b"
+                            class="developer">Madhujith B.</a> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active classes from all tabs
+                tabButtons.forEach(tab => {
+                    tab.classList.remove('active', 'border-green-500', 'text-green-500');
+                    tab.classList.add('border-transparent', 'text-gray-500');
+                });
+
+                // Add active classes to clicked tab
+                button.classList.add('active', 'border-green-500', 'text-green-500');
+                button.classList.remove('border-transparent', 'text-gray-500');
+
+                // Hide all tab content
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    content.classList.add('hidden');
+                });
+
+                // Show corresponding tab content
+                const tabName = button.getAttribute('data-tab');
+                const activeContent = document.getElementById(`${tabName}-content`);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                    activeContent.classList.remove('hidden');
+                }
+            });
+        });
+
+        // Slideshow functionality
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("slide");
+            const indicators = document.getElementsByClassName("indicator");
+            const thumbnails = document.querySelectorAll(".product-gallery img");
+
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+
+            // Remove active class from all indicators
+            for (i = 0; i < indicators.length; i++) {
+                indicators[i].classList.remove("active");
+            }
+
+            // Remove active class from all thumbnails
+            for (i = 0; i < thumbnails.length; i++) {
+                thumbnails[i].classList.remove("active");
+            }
+
+            // Show current slide
+            slides[slideIndex - 1].classList.add("active");
+
+            // Activate current indicator
+            if (indicators[slideIndex - 1]) {
+                indicators[slideIndex - 1].classList.add("active");
+            }
+
+            // Activate current thumbnail
+            if (thumbnails[slideIndex - 1]) {
+                thumbnails[slideIndex - 1].classList.add("active");
+            }
+        }
+
+        // Auto-advance slideshow
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Quantity controls
+        function updateQuantity(change) {
+            const quantityElement = document.getElementById('quantity');
+            if (quantityElement) {
+                let quantity = parseInt(quantityElement.textContent);
+                quantity += change;
+                if (quantity < 1) quantity = 1;
+                quantityElement.textContent = quantity;
+            }
+        }
+
+        // Make functions globally available if needed
+        window.changeSlide = changeSlide;
+        window.currentSlide = currentSlide;
+        window.updateQuantity = updateQuantity;
+    </script>
+</body>
+
+</html>
