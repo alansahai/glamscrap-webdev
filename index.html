@@ -1342,24 +1342,12 @@
             statsObserver.observe(statsSection);
         }
     </script>
-    <!-- <iframe src="/glamscrap-webdev-master/chatbot-refined.html" style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 360px;
-    height: 550px;
-    border: none;
-    border-radius: 20px;
-    background: transparent;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
-  " allowtransparency="true">
-    </iframe> -->
 
-    <!-- Chatbot Launcher Button
-    <div class="chatbot-toggle" onclick="toggleChatbot()">🤖</div>
+    <!-- Chatbot Launcher Button -->
+    <div class="chatbot-toggle" onclick="toggleChatbot()" style="position:sticky;left:93%">🤖</div>
 
-    <div class="chat-container" id="chat-container">
+    <!-- Chatbot Box -->
+    <div class="chat-container" id="chat-container" style="position:sticky;left:70%">
         <div class="chat-header">
             <div class="chat-header-content">
                 <div class="company-logo">🌱</div>
@@ -1384,7 +1372,7 @@
             <input type="text" id="user-input" placeholder="Ask me anything about our services..." />
             <button class="send-btn" onclick="sendMessage()">Send</button>
         </div>
-    </div> -->
+    </div>
 </body>
 
 </html>
