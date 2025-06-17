@@ -16,6 +16,14 @@
             background-size: 20px 20px;
         } */
 
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+
         body {
             opacity: 0;
             /* transform: translateY(20px); */
@@ -176,7 +184,7 @@
     </style>
 </head>
 
-<body class="font-sans antialiased text-gray-800 bg-gray-50">
+<body class="font-sans antialiased text-gray-800 bg-green-900">
     <!-- Navigation -->
     <nav class="bg-green-800 text-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1335,7 +1343,8 @@
     </script>
 
     <!-- Chatbot Launcher Button -->
-    <div class="chatbot-toggle" onclick="toggleChatbot()" style="position:sticky;left:93%">🤖</div>
+    <div class="chatbot-toggle" onclick="toggleChatbot()" style="position:sticky; left:93%; color: #065f46;">
+        🤖</div>
 
     <!-- Chatbot Box -->
     <div class="chat-container" id="chat-container" style="position:sticky;left:70%">
