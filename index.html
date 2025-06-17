@@ -8,13 +8,13 @@
     <link rel="icon" href="/Assets/Glamscrap logo.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <script src="chatbot.js"></script>
     <style>
         /* .leaf-pattern {
             background-image: radial-gradient(circle, rgba(74, 163, 106, 0.1) 1px, transparent 1px);
             background-size: 20px 20px;
         } */
-
-
 
         body {
             opacity: 0;
@@ -138,6 +138,40 @@
         .submit-btn:hover {
             background-color: #065f46;
             transform: translateY(-2px);
+        }
+
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #059669, #065f46);
+            color: white;
+            font-size: 28px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 8px 25px rgba(6, 95, 70, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 380px;
+            max-height: 90vh;
+            display: none;
+            /* starts hidden */
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -1308,6 +1342,49 @@
             statsObserver.observe(statsSection);
         }
     </script>
+    <!-- <iframe src="/glamscrap-webdev-master/chatbot-refined.html" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 360px;
+    height: 550px;
+    border: none;
+    border-radius: 20px;
+    background: transparent;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+  " allowtransparency="true">
+    </iframe> -->
+
+    <!-- Chatbot Launcher Button
+    <div class="chatbot-toggle" onclick="toggleChatbot()">🤖</div>
+
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            <div class="chat-header-content">
+                <div class="company-logo">🌱</div>
+                <div>
+                    <div class="chat-title">GreenPal Assistant</div>
+                    <div class="chat-subtitle">Glamscrap Technologies</div>
+                </div>
+            </div>
+            <button class="close-btn" onclick="toggleChatbot()">✕</button>
+        </div>
+
+        <div id="chat-box" class="chat-box"></div>
+
+        <div class="quick-actions" id="quick-actions">
+            <div class="quick-action" onclick="sendQuickMessage('What services do you offer?')">Our Services</div>
+            <div class="quick-action" onclick="sendQuickMessage('How can I contact you?')">Contact Info</div>
+            <div class="quick-action" onclick="sendQuickMessage('Tell me about e-waste recycling')">E-waste</div>
+            <div class="quick-action" onclick="sendQuickMessage('What is your mission?')">Our Mission</div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Ask me anything about our services..." />
+            <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+    </div> -->
 </body>
 
 </html>
