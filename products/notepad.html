@@ -732,7 +732,7 @@
 
             <div class="border-t border-green-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-green-300 text-sm mb-4 md:mb-0">
-                    © 2025 Glamscrap Technologies Pvt. Ltd. All rights reserved.
+                    © <span id="currentYear"></span> Glamscrap Technologies Pvt. Ltd. All rights reserved.
                 </p>
                 <div class="flex space-x-6">
                     <p style="font-size: 16px;">Developed by <a href="https://www.linkedin.com/in/alan-s-9385a328a/"
@@ -745,6 +745,9 @@
     </footer>
 
     <script>
+        // Set current year in footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
         // Mobile menu toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
