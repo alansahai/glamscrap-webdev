@@ -11,18 +11,6 @@
     <!-- <link rel="stylesheet" href="chatbot.css">
     <script src="chatbot.js"></script> -->
 
-    <!-- analytics from ahrefs -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="LD0+6DlQubsCbcJvtJbBEA" async></script>
-    <script>
-        var ahrefs_analytics_script = document.createElement('script');
-        ahrefs_analytics_script.async = true;
-        ahrefs_analytics_script.src = 'https://analytics.ahrefs.com/analytics.js';
-        ahrefs_analytics_script.setAttribute('data-key', 'LD0+6DlQubsCbcJvtJbBEA');
-        document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
-    </script>
-
-
-
     <meta name="title" content="Glamscrap Technologies | Eco-Friendly Recycled Products & Sustainable Solutions India">
     <meta name="description"
         content="Leading sustainability startup transforming waste into eco-friendly products. Shop seed pens, recycled notebooks, custom trophies, 3D printed items & corporate gifts. Zero-waste circular economy solutions in India.">
@@ -1136,8 +1124,11 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-lg font-semibold text-gray-900">Corporate Headquarters</h4>
-                                    <p class="mt-1 text-gray-600">SREC SPARK Incubation Center,<br>Sri Ramakrishna
-                                        Engineering College,<br>Vattamalaipalayam,<br>Coimbatore - 641022</p>
+                                    <a href="https://maps.app.goo.gl/6aG4FWQmSTWKGLqu8"
+                                        class="mt-1 text-gray-600 hover:text-gray-600">SREC SPARK Incubation
+                                        Center,<br>Sri
+                                        Ramakrishna
+                                        Engineering College,<br>Vattamalaipalayam,<br>Coimbatore - 641022</a>
                                 </div>
                             </div>
 
@@ -1149,8 +1140,12 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-lg font-semibold text-gray-900">Phone</h4>
-                                    <p class="mt-1 text-gray-600">+91 93632 06709</p>
-                                    <p class="mt-1 text-gray-600">+91 78688 43309</p>
+                                    <a href="https://wa.me/+919363206709"
+                                        class="mt-1 text-gray-600 hover:text-gray-600">+91
+                                        93632 06709</a><br>
+                                    <a href="https://wa.me/+917868843309"
+                                        class="mt-1 text-gray-600 hover:text-gray-600">+91
+                                        78688 43309</a>
                                     <p class="text-sm text-gray-500 mt-1">Mon-Sat, 10:00 AM - 05:00 PM IST</p>
                                 </div>
                             </div>
@@ -1163,7 +1158,8 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-lg font-semibold text-gray-900">Email</h4>
-                                    <p class="mt-1 text-gray-600">glamscraptechnologies@gmail.com</p>
+                                    <a href="mailto:glamscraptechnologies@gmail.com"
+                                        class="mt-1 text-gray-600 hover:text-gray-600">glamscraptechnologies@gmail.com</a>
                                     <p class="text-sm text-gray-500 mt-1">Typically responds within 24 hours</p>
                                 </div>
                             </div>
@@ -1318,8 +1314,9 @@
 
             <div class="border-t border-green-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-green-300 text-sm mb-4 md:mb-0">
-                    © 2025 Glamscrap Technologies Pvt. Ltd. All rights reserved.
+                    © <span id="currentYear"></span> Glamscrap Technologies Pvt. Ltd. All rights reserved.
                 </p>
+
                 <div class="flex space-x-6">
                     <!-- <img src="https://via.placeholder.com/40x25?text=ISO" alt="ISO Certified" class="h-6">
                     <img src="https://via.placeholder.com/40x25?text=EPR" alt="EPR Compliance" class="h-6">
@@ -1334,6 +1331,9 @@
     </footer>
 
     <script>
+        // Set current year in footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
         // Get the form element
         const form = document.querySelector('form[name="contact-form"]');
 
@@ -1439,6 +1439,8 @@
             statsObserver.observe(statsSection);
         }
     </script>
+
+
 
     <!-- Chatbot Launcher Button
     <div class="chatbot-toggle" onclick="toggleChatbot()" style="position:sticky; left:93%; color: #065f46;">
